@@ -1,2 +1,3 @@
-# sysapp
-Group Project for SWEN3001 ( Android Application Development I )
+# SolCalc
+A calculator for estimating the resources needed to implement a solar system. 
+
