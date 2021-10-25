@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SolCalc</string>
+    <string name="label">label</string>
 </resources>
