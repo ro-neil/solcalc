@@ -20,9 +20,7 @@ class CalculatorActivity : AppCompatActivity() {
         editAddress = findViewById(R.id.client_addr)
 
         slider = findViewById(R.id.billCut)
-        slider.addOnChangeListener{slider, value, fromUser->
-            //gettingslider value
-        }
+
 
         batteries = findViewById(R.id.if_batteries)
         val getEstimate = findViewById<Button>(R.id.get_estimate)
