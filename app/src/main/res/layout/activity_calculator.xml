@@ -26,7 +26,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:hint="@string/c_name"
-            android:hintTextColor="@color/black"
             android:visibility="visible"
             app:boxStrokeColor="@color/orange"
             app:boxStrokeWidth="1.8dp">
@@ -48,7 +47,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:hint="@string/c_addr"
-            android:hintTextColor="@color/black"
             android:visibility="visible"
             app:boxStrokeWidth="1.8dp"
             app:boxStrokeColor="@color/orange">
@@ -86,7 +84,6 @@
             app:thumbColor="@color/orange"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/if_batteries"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
@@ -96,9 +93,10 @@
             app:boxStrokeWidth="1.8dp">
 
             <AutoCompleteTextView
+                android:id="@+id/if_batteries"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="none" />
+                android:inputType="none"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -108,7 +106,7 @@
             android:layout_marginTop="50dp"
             android:text="@string/click_below"
             android:textAlignment="center"
-            android:textColor="@color/black"></TextView>
+            android:textColor="@color/black"/>
 
         <Button
             android:id="@+id/get_estimate"
