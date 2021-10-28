@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/naomi/Desktop/SWEN3001Labs/solcalc/app/src/main/res/drawable/layout_bg.xml" value="0.21510416666666668" />
-        <entry key="..\:/Users/naomi/Desktop/SWEN3001Labs/solcalc/app/src/main/res/layout/activity_calculator.xml" value="0.5" />
         <entry key="..\:/Users/naomi/Desktop/SWEN3001Labs/solcalc/app/src/main/res/layout/activity_main.xml" value="0.28940217391304346" />
+        <entry key="app/src/main/res/layout/activity_calculator.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_estimate.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_previous_estimate.xml" value="0.22" />
       </map>
     </option>
   </component>
