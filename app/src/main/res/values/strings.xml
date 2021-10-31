@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">SolCalc</string>
+    <string name="batteries">Include Batteries?</string>
+    <string name="get_estimate">Get Estimate</string>
+    <string name="c_name">Name</string>
+    <string name="c_addr">Address</string>
+    <string name="click_below">Okay, all set. Click below to get your estimate</string>
+    <string name="percent_cut">Percentage to Cut Bill By</string>
+    <string-array name="battery_options">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
 </resources>
