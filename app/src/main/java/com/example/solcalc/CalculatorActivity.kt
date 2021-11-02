@@ -28,6 +28,7 @@ class CalculatorActivity : AppCompatActivity() {
         val editAddress: TextInputEditText = findViewById(R.id.client_addr)
         val slider: Slider = findViewById(R.id.billCut)
         val batteries: Switch = findViewById(R.id.ifBatteries)
+        val editBill: TextInputEditText = findViewById(R.id.client_bill)
 
 
         val getEstimateBtn: Button = findViewById(R.id.get_estimate)
@@ -37,14 +38,16 @@ class CalculatorActivity : AppCompatActivity() {
             val address = editAddress.text.toString()
             val billCutVal = slider.value.toInt()
             val batteriesBool = batteries.isChecked
+            val bill : Float = java.lang.Float.valueOf(editBill.text.toString())
 
-            if(TextUtils.isEmpty(name) || TextUtils.isEmpty(address) || billCutVal == null){
+            if(TextUtils.isEmpty(name) || TextUtils.isEmpty(address)){
                 setResult(Activity.RESULT_CANCELED, genEstimateIntent)
             }else{
                 genEstimateIntent.putExtra(CLIENT_NAME, name)
                 genEstimateIntent.putExtra(CLIENT_ADDR, address)
                 genEstimateIntent.putExtra(CLIENT_BILL_CUT, billCutVal)
                 genEstimateIntent.putExtra(CLIENT_IF_BATTERIES, batteriesBool)
+                genEstimateIntent.putExtra(CLIENT_BILL, bill)
                 setResult(Activity.RESULT_OK,genEstimateIntent)
             }
             finish()
@@ -54,6 +57,7 @@ class CalculatorActivity : AppCompatActivity() {
     companion object{
         const val CLIENT_NAME = "client_name"
         const val CLIENT_ADDR = "client_address"
+        const val CLIENT_BILL = "client_bill"
         const val CLIENT_BILL_CUT = "bill_cut"
         const val CLIENT_IF_BATTERIES = "batteries_desc"
     }
