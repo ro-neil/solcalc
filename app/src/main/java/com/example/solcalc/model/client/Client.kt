@@ -7,7 +7,4 @@ import androidx.room.PrimaryKey
 data class Client(
     @PrimaryKey(autoGenerate = true) var cid: Int,
     var name: String,
-    var addr: String,
-    var avgLB: Double,
-    var perCut: Int,
-    var batteries: Boolean)
+    var addr: String)

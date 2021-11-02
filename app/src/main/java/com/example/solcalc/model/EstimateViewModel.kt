@@ -5,10 +5,13 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.solcalc.model.client.Client
+import com.example.solcalc.model.estimate.Estimate
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class EstimateViewModel(application: Application):AndroidViewModel(application) {
    private val repo:SolCalcRepo
-   val lastThreeClients: LiveData<List<Client>>
+   private val lastThreeClients: LiveData<List<Client>>
 
    init{
        val db = SolCalcDatabase.getDatabase(application, viewModelScope)
@@ -16,8 +19,16 @@ class EstimateViewModel(application: Application):AndroidViewModel(application) 
        val estimateDao = db.estimateDao()
 
        repo = SolCalcRepo(clientDao, estimateDao)
-       lastThreeClients = repo.client
+       lastThreeClients = repo.clients
 
    }
+
+    fun insert(client: Client) = viewModelScope.launch(Dispatchers.IO){
+        repo.insert(client)
+    }
+
+    fun insert(estimate: Estimate) = viewModelScope.launch(Dispatchers.IO) {
+        repo.insert(estimate)
+    }
 
 }

@@ -12,7 +12,7 @@ import com.example.solcalc.model.estimate.EstimateDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [Client::class, Estimate::class], version=1, exportSchema=false)
+@Database(entities = [Client::class, Estimate::class], version=2, exportSchema=false)
 public abstract class SolCalcDatabase: RoomDatabase() {
     abstract fun clientDao(): ClientDao
     abstract fun estimateDao(): EstimateDao
@@ -32,6 +32,7 @@ public abstract class SolCalcDatabase: RoomDatabase() {
                     SolCalcDatabase::class.java,
                     "solcalc_db"
                 ).addCallback(SolCalcDBCallback(scope)).fallbackToDestructiveMigration().build()
+                //comment out the addcallbacksection if it is that you dont want to populate the db
                 INSTANCE = instance
                 return instance
             }
@@ -53,8 +54,8 @@ public abstract class SolCalcDatabase: RoomDatabase() {
             estimateDao.deleteAll()
 
             val clients = arrayListOf<Client>()
-            clients.add(Client(1,"Jane Doe","5 Bay Leaf Road, Kingston 19", 18097.67, 70, true))
-            clients.add(Client(1,"John Doe","5 Bay Leaf Road, Kingston 19", 18097.67, 70, true))
+            clients.add(Client(1,"Jane Doe","5 Bay Leaf Road, Kingston 19"))
+            clients.add(Client(1,"John Doe","5 Bay Leaf Road, Kingston 19"))
 
             for(client in clients){
                 clientDao.insertClient(client)

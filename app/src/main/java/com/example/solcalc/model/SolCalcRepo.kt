@@ -8,8 +8,7 @@ import com.example.solcalc.model.estimate.EstimateDao
 
 class SolCalcRepo (private val clientDao: ClientDao, private val estimateDao: EstimateDao){
 
-
-    val client: LiveData<List<Client>> = clientDao.getLastThreeEntries()
+    val clients: LiveData<List<Client>> = clientDao.getLastThreeEntries()
 
     suspend fun insert(client: Client){
         clientDao.insertClient(client)

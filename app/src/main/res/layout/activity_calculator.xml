@@ -7,10 +7,25 @@
     tools:context=".CalculatorActivity"
     android:background="@color/orange">
 
+    <TextView
+        android:id="@+id/screen_name"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/calc"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="707dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="180dp"
         android:background="@drawable/layout_bg"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,14 +33,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="@string/c_name"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"/>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/client_name_label"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:hint="@string/c_name"
             android:visibility="visible"
             app:boxStrokeColor="@color/orange"
             app:boxStrokeWidth="1.8dp">
@@ -39,14 +61,21 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:text="@string/c_addr"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"/>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/client_addr_label"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:hint="@string/c_addr"
             android:visibility="visible"
             app:boxStrokeWidth="1.8dp"
             app:boxStrokeColor="@color/orange">
@@ -64,9 +93,10 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:text="@string/percent_cut"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"/>
 
         <com.google.android.material.slider.Slider
             android:id="@+id/billCut"
@@ -83,21 +113,17 @@
             app:tickVisible="false"
             app:thumbColor="@color/orange"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        <Switch
+            android:id="@+id/ifBatteries"
+            android:layout_marginTop="15dp"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:hint="@string/batteries"
-            app:boxStrokeWidth="1.8dp">
-
-            <AutoCompleteTextView
-                android:id="@+id/if_batteries"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="none"/>
-        </com.google.android.material.textfield.TextInputLayout>
+            android:text="@string/batteries"
+            android:fontFamily="@font/poppins_medium"
+            android:checked="true"
+            android:textOn="Yes"
+            android:textOff="No"/>
 
         <TextView
             android:layout_width="350dp"
@@ -106,7 +132,8 @@
             android:layout_marginTop="50dp"
             android:text="@string/click_below"
             android:textAlignment="center"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"/>
 
         <Button
             android:id="@+id/get_estimate"
@@ -116,7 +143,10 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/orange"
-            android:textColor="@color/cultured"/>
+            android:textColor="@color/cultured"
+            android:fontFamily="@font/poppins_medium"/>
+
+
 
     </LinearLayout>
 
