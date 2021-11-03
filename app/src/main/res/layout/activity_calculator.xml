@@ -7,10 +7,63 @@
     tools:context=".CalculatorActivity"
     android:background="@color/orange">
 
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="20dp"
+            android:contentDescription=""
+            android:background="@drawable/ic_arrow" />
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:contentDescription=""
+            android:background="@drawable/ic_sun" />
+
+        <ImageButton
+            android:layout_width="38dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            android:contentDescription=""
+            android:background="@drawable/ic_questionmark" />
+
+    </Toolbar>
+
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="Calculator" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="707dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="140dp"
         android:background="@drawable/layout_bg"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -34,9 +87,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/client_name"
                 android:layout_width="350dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:layout_height="wrap_content"/>
+                android:layout_marginBottom="10dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,15 +103,15 @@
             android:hint="@string/c_addr"
             android:hintTextColor="@color/black"
             android:visibility="visible"
-            app:boxStrokeWidth="1.8dp"
-            app:boxStrokeColor="@color/orange">
+            app:boxStrokeColor="@color/orange"
+            app:boxStrokeWidth="1.8dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/client_addr"
                 android:layout_width="350dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:layout_height="wrap_content"/>
+                android:layout_marginBottom="10dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,22 +121,22 @@
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:text="@string/percent_cut"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
         <com.google.android.material.slider.Slider
             android:id="@+id/billCut"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:stepSize="10"
             android:value="10"
             android:valueFrom="0"
             android:valueTo="100"
-            android:stepSize="10"
-            android:layout_marginTop="10dp"
-            app:trackColor="@color/orange"
-            app:trackHeight="10dp"
+            app:thumbColor="@color/orange"
             app:tickVisible="false"
-            app:thumbColor="@color/orange"/>
+            app:trackColor="@color/orange"
+            app:trackHeight="10dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/if_batteries"
@@ -108,17 +161,34 @@
             android:layout_marginTop="50dp"
             android:text="@string/click_below"
             android:textAlignment="center"
-            android:textColor="@color/black"></TextView>
+            android:textColor="@color/black"/>
 
         <Button
             android:id="@+id/get_estimate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/get_estimate"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/orange"
-            android:textColor="@color/cultured"/>
+            android:text="@string/get_estimate"
+            android:textColor="@color/cultured" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/navbar"
+            app:itemIconTint="@color/orange"
+            app:itemTextColor="@color/orange"/>
 
     </LinearLayout>
 
