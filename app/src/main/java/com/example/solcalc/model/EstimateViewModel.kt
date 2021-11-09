@@ -1,6 +1,7 @@
 package com.example.solcalc.model
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -29,6 +30,10 @@ class EstimateViewModel(application: Application):AndroidViewModel(application) 
 
     fun insert(estimate: Estimate) = viewModelScope.launch(Dispatchers.IO) {
         repo.insert(estimate)
+    }
+
+    fun getLastClient(): LiveData<List<Client>> {
+        return repo.getLastClient()
     }
 
 }

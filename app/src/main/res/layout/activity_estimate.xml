@@ -84,7 +84,7 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/no_of_panel"
+                    android:id="@+id/no_of_panels"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"

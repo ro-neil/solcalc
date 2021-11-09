@@ -54,8 +54,8 @@ public abstract class SolCalcDatabase: RoomDatabase() {
             estimateDao.deleteAll()
 
             val clients = arrayListOf<Client>()
-            clients.add(Client(1,"Jane Doe","5 Bay Leaf Road, Kingston 19"))
-            clients.add(Client(1,"John Doe","5 Bay Leaf Road, Kingston 19"))
+            clients.add(Client(1,"Jane Doe","6 Bay Leaf Road, Kingston 19"))
+            clients.add(Client(2,"John Doe","5 Bay Leaf Road, Kingston 19"))
 
             for(client in clients){
                 clientDao.insertClient(client)

@@ -18,6 +18,9 @@ interface ClientDao {
     @Query("SELECT * FROM Client JOIN Estimate ON Client.cid = Estimate.clientID WHERE cid = :sid")
     fun getClientEstimate(sid:Int): LiveData<List<Client>>
 
-    @Query("DELETE FROM client")
+    @Query("DELETE FROM Client")
     suspend fun deleteAll()
+
+    @Query("SELECT * FROM Client ORDER BY cid DESC LIMIT 1")
+    fun getLastClient(): LiveData<List<Client>>
 }

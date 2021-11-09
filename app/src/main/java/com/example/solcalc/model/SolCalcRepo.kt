@@ -1,5 +1,6 @@
 package com.example.solcalc.model
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.solcalc.model.client.Client
 import com.example.solcalc.model.client.ClientDao
@@ -17,4 +18,9 @@ class SolCalcRepo (private val clientDao: ClientDao, private val estimateDao: Es
     suspend fun insert(estimate: Estimate){
         estimateDao.insertEstimate(estimate)
     }
+
+    fun getLastClient(): LiveData<List<Client>> {
+        return clientDao.getLastClient()
+    }
 }
+
