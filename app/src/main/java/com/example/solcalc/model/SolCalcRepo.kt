@@ -9,7 +9,7 @@ import com.example.solcalc.model.estimate.EstimateDao
 
 class SolCalcRepo (private val clientDao: ClientDao, private val estimateDao: EstimateDao){
 
-    val clients: LiveData<List<Client>> = clientDao.getLastThreeEntries()
+    val clients: LiveData<List<Client>> = clientDao.getAllClients()
 
     suspend fun insert(client: Client){
         clientDao.insertClient(client)
@@ -22,5 +22,10 @@ class SolCalcRepo (private val clientDao: ClientDao, private val estimateDao: Es
     fun getLastClient(): LiveData<List<Client>> {
         return clientDao.getLastClient()
     }
+
+    fun getSpecificClient(cid:Int): Client {
+        return clientDao.getSpecificClient(cid)
+    }
+
 }
 

@@ -21,6 +21,13 @@ interface ClientDao {
     @Query("DELETE FROM Client")
     suspend fun deleteAll()
 
+    @Query("SELECT * FROM Client")
+    fun getAllClients(): LiveData<List<Client>>
+
     @Query("SELECT * FROM Client ORDER BY cid DESC LIMIT 1")
     fun getLastClient(): LiveData<List<Client>>
+
+
+    @Query("SELECT * FROM Client WHERE cid = :cid")
+    fun getSpecificClient(cid:Int): Client
 }

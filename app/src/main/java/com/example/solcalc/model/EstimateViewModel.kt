@@ -4,15 +4,17 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
 import com.example.solcalc.model.client.Client
 import com.example.solcalc.model.estimate.Estimate
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class EstimateViewModel(application: Application):AndroidViewModel(application) {
    private val repo:SolCalcRepo
-   private val lastThreeClients: LiveData<List<Client>>
+   private val clients: LiveData<List<Client>>
 
    init{
        val db = SolCalcDatabase.getDatabase(application, viewModelScope)
@@ -20,7 +22,7 @@ class EstimateViewModel(application: Application):AndroidViewModel(application) 
        val estimateDao = db.estimateDao()
 
        repo = SolCalcRepo(clientDao, estimateDao)
-       lastThreeClients = repo.clients
+       clients = repo.clients
 
    }
 
@@ -33,7 +35,12 @@ class EstimateViewModel(application: Application):AndroidViewModel(application) 
     }
 
     fun getLastClient(): LiveData<List<Client>> {
+        Log.d("test3", clients.value?.get(0)?.cid.toString())
         return repo.getLastClient()
+    }
+
+    fun getSpecificClient(cid: Int): Client {
+        return repo.getSpecificClient(cid)
     }
 
 }

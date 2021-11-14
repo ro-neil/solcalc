@@ -34,7 +34,7 @@ class CalculatorActivity : AppCompatActivity() {
 
         val getEstimateBtn: Button = findViewById(R.id.get_estimate)
         getEstimateBtn.setOnClickListener{
-            var intent = Intent()   // Create implicit Intent
+            //var intent = Intent()   // Create implicit Intent
             val name = editName.text.toString()
             val address = editAddress.text.toString()
             val stringBill : Float = java.lang.Float.valueOf(editBill.text.toString())
@@ -58,39 +58,45 @@ class CalculatorActivity : AppCompatActivity() {
 
                 // Store quote fields as references
                 val numberOfPanels: Int = quote.numberOfPanels
+                val d : String = java.lang.String.valueOf(numberOfPanels)
+                Log.d("no", d)
                 val inverterCapacity: Double = quote.inverterCapacity
                 val storageCapacity: Double = quote.storageCapacity
                 val payBackPeriod: Double = quote.payBackPeriod
                 val totalInstallationCost: Double = quote.totalInstallationCost
 
                 // Create Client & Estimate or Update Client Estimates
-                val client = Client(cid=0,name,address)
-                estimateViewModel.insert(client)
+                //val client = Client(cid=0,name,address)
+                //estimateViewModel.insert(client)
 
-                val cid  = estimateViewModel.getLastClient()
-                Log.d("test", cid.toString())
+//                val data  = estimateViewModel.getLastClient()
+//                val tt = estimateViewModel.getSpecificClient(2)
+//                Log.d("test5", tt.name)
+//                val data2 = data.value
+//                val data3 = data2?.get(0)?.name
+//                Log.d("test2", data3.toString())
 
 //                Log.d("CalculatorActivity","Creating Estimate entity")
 //                val estimate = Estimate(eid=0, cid,numberOfPanels,inverterCapacity, storageCapacity,billCutVal,payBackPeriod, totalInstallationCost)
 //                Log.d("CalculatorActivity","Created Estimate entity(eid: ${estimate.eid}). Inserting into DB...")
 //                estimateViewModel.insert(estimate)
 //
-//                // Recall and use data from DB
-//                Log.d("CalculatorActivity","Creating Intent")
-//                intent = Intent(this@CalculatorActivity, EstimateActivity::class.java) // Reassign to explicit intent
-//                // Pass estimate values as extras to EstimateActivity
-//                Log.d("CalculatorActivity","Intent created. Putting extras...")
-//                intent.putExtra(CLIENT_NAME, name)
-//                intent.putExtra(CLIENT_ADDRESS, address)
-//                intent.putExtra(PANELS, numberOfPanels)
-//                intent.putExtra(INVERTER_SIZE, inverterCapacity)
-//                intent.putExtra(STORAGE_SIZE, storageCapacity)
-//                intent.putExtra(CLIENT_BILL_CUT, billCutVal)
-//                intent.putExtra(PAYBACK_PERIOD, payBackPeriod)
-//                intent.putExtra(TOTAL_COST, totalInstallationCost)
-//                Log.d("Intent","Intent extras assigned. Starting EstimateActivity...")
-                // Start estimate activity to format the results
-                //startActivity(intent)
+                // Recall and use data from DB
+                Log.d("CalculatorActivity","Creating Intent")
+                val intent = Intent(this@CalculatorActivity, EstimateActivity::class.java) // Reassign to explicit intent
+                // Pass estimate values as extras to EstimateActivity
+                Log.d("CalculatorActivity","Intent created. Putting extras...")
+                intent.putExtra(CLIENT_NAME, name)
+                intent.putExtra(CLIENT_ADDRESS, address)
+                intent.putExtra(PANELS, numberOfPanels)
+                intent.putExtra(INVERTER_SIZE, inverterCapacity)
+                intent.putExtra(STORAGE_SIZE, storageCapacity)
+                intent.putExtra(CLIENT_BILL_CUT, billCutVal)
+                intent.putExtra(PAYBACK_PERIOD, payBackPeriod)
+                intent.putExtra(TOTAL_COST, totalInstallationCost)
+                Log.d("Intent","Intent extras assigned. Starting EstimateActivity...")
+                 //Start estimate activity to format the results
+                startActivity(intent);
             }
             //finish()
         }
