@@ -37,10 +37,15 @@ class CalculatorActivity : AppCompatActivity() {
             //var intent = Intent()   // Create implicit Intent
             val name = editName.text.toString()
             val address = editAddress.text.toString()
+
             val stringBill : Float = java.lang.Float.valueOf(editBill.text.toString())
             val billCutVal = slider.value.toDouble()/100    // 0 <= billCutVal <= 1
             val batteriesBool = batteries.isChecked
             val bill = stringBill.toDouble()
+
+            Log.d("CalculatorActivity - Bill",editBill.text.toString())
+            Log.d("CalculatorActivity - Bill cut",billCutVal.toString())
+            Log.d("CalculatorActivity - Batteries",batteriesBool.toString())
 
             if(TextUtils.isEmpty(name) || TextUtils.isEmpty(address) || (bill == 0.0)){
                 Log.d("CalculatorActivity","Name, Address or Bill field is empty")
@@ -49,6 +54,7 @@ class CalculatorActivity : AppCompatActivity() {
                 calc = CalculationsApi()
                 estimateViewModel = ViewModelProvider(this@CalculatorActivity).get(EstimateViewModel::class.java)
 
+                Log.d("CalculatorActivity","Generating quote based on battery preference")
                 // Generate quote based on battery preference
                 quote = if(batteriesBool){
                     calc.getTotalSystemCostWithBatteries(bill, billCutVal)
@@ -58,12 +64,17 @@ class CalculatorActivity : AppCompatActivity() {
 
                 // Store quote fields as references
                 val numberOfPanels: Int = quote.numberOfPanels
-                val d : String = java.lang.String.valueOf(numberOfPanels)
-                Log.d("no", d)
+                //val strNumberOfPanels : String = java.lang.String.valueOf(numberOfPanels)
                 val inverterCapacity: Double = quote.inverterCapacity
                 val storageCapacity: Double = quote.storageCapacity
-                val payBackPeriod: Double = quote.payBackPeriod
+                val payBackPeriod: Double = "%.2f".format(quote.payBackPeriod).toDouble()
                 val totalInstallationCost: Double = quote.totalInstallationCost
+                Log.d("CalculatorActivity","Generated Quote values")
+                Log.d("CalculatorActivity - numberOfPanels",numberOfPanels.toString())
+                Log.d("CalculatorActivity - inverterCapacity",inverterCapacity.toString())
+                Log.d("CalculatorActivity - storageCapacity",storageCapacity.toString())
+                Log.d("CalculatorActivity - payBackPeriod",payBackPeriod.toString())
+                Log.d("CalculatorActivity - totalInstallationCost",totalInstallationCost.toString())
 
                 // Create Client & Estimate or Update Client Estimates
                 //val client = Client(cid=0,name,address)

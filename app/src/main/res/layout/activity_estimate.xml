@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:text=""
+                android:text="@string/total_system_cost"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -66,7 +66,7 @@
 
 
             <RelativeLayout
-                android:layout_width="327dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="30dp"
@@ -275,13 +275,14 @@
                 app:cardCornerRadius="20dp">
 
                 <TextView
+                    android:id="@+id/str_total_sys_cost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    tools:text="TOTAL SYSTEM COST" />
+                    android:text="@string/total_system_cost" />
 
                 <TextView
                     android:id="@+id/total_sys_cost"
@@ -292,16 +293,17 @@
                     android:textColor="@color/orange"
                     android:textSize="25sp"
                     android:textStyle="bold"
-                    tools:text="" />
+                    android:text="$$$" />
 
                 <TextView
+                    android:id="@+id/str_include_labour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="65dp"
                     android:textColor="@color/black"
                     android:textSize="13sp"
-                    tools:text="*includes labour cost" />
+                    android:text="@string/includes_labour" />
 
             </androidx.cardview.widget.CardView>
 

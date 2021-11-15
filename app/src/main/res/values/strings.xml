@@ -12,4 +12,6 @@
     </string-array>
     <string name="calc">Calculator</string>
     <string name="c_bill">Highest Recorded/Avg. Light Bill</string>
+    <string name="total_system_cost">TOTAL SYSTEM COST</string>
+    <string name="includes_labour">*includes labour cost</string>
 </resources>
