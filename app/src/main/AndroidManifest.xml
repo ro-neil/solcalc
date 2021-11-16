@@ -10,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SolCalc">
         <activity
+            android:name=".EstimateActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CalculatorActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
