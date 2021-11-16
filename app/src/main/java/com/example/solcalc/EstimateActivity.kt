@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.solcalc.model.EstimateViewModel
 
@@ -25,12 +27,14 @@ class EstimateActivity : AppCompatActivity() {
         // Get extras
         val clientsName: String = intent.getStringExtra(CalculatorActivity.CLIENT_NAME).toString()
         val clientsAddress: String = intent.getStringExtra(CalculatorActivity.CLIENT_ADDRESS).toString()
+        val clientsEmail = arrayOf(intent.getStringExtra(CalculatorActivity.CLIENT_EMAIL).toString())
         val solarPanels: String = intent.getIntExtra(CalculatorActivity.PANELS,0).toString()
         val inverterSize: String = intent.getDoubleExtra(CalculatorActivity.INVERTER_SIZE,0.0).toString() + " kW"
         val storageSize: String = intent.getDoubleExtra(CalculatorActivity.STORAGE_SIZE,0.0).toString() + " kWh"
         val billCut: String = (intent.getDoubleExtra(CalculatorActivity.CLIENT_BILL_CUT,0.0) * 100 ).toString() + "%"
         val paybackPeriod: String = intent.getDoubleExtra(CalculatorActivity.PAYBACK_PERIOD,0.0).toString() + " yrs"
         val totalCost: String = "$" + intent.getDoubleExtra(CalculatorActivity.TOTAL_COST,0.0).toString()
+        val subj: String = "$clientsName's SoCal Estimate"
 
         // Set TextView References
         val clientName: TextView = findViewById<TextView?>(R.id.ClientName)
@@ -51,5 +55,18 @@ class EstimateActivity : AppCompatActivity() {
         billCutBy.text = billCut
         paybackPeriodIs.text = paybackPeriod
         totalInstallationCost.text = totalCost
+
+        val mailBtn : Button = findViewById(R.id.send_email_button)
+        mailBtn.setOnClickListener {
+            val intent = Intent().apply{
+                this.action = Intent.ACTION_SEND
+                type = "text/html"
+                this.putExtra(Intent.EXTRA_EMAIL,clientsEmail)
+                this.putExtra(Intent.EXTRA_SUBJECT, subj)
+                this.putExtra(Intent.EXTRA_TEXT, totalCost)
+            }
+            startActivity(Intent.createChooser(intent, "Send Email"))
+            Toast.makeText(applicationContext, "Email Sent!", Toast.LENGTH_SHORT).show()
+        }
     }
 }
