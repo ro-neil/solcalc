@@ -18,11 +18,7 @@ class EstimateActivity : AppCompatActivity() {
 
         estimateViewModel = ViewModelProvider(this).get(EstimateViewModel::class.java)
 
-        Log.d("New Activity","EstimateActivity started")
         // Get explicit intent from activity_calculator or previous_estimates
-
-        Log.d("Intent","Received intent from calling activity")
-
         // Retrieve the precalculated/prefetched values for insertion into TextViews
         // Eliminating the need to know the source of the intent. Instead, just present the values given
 
@@ -30,13 +26,11 @@ class EstimateActivity : AppCompatActivity() {
         val clientsName: String = intent.getStringExtra(CalculatorActivity.CLIENT_NAME).toString()
         val clientsAddress: String = intent.getStringExtra(CalculatorActivity.CLIENT_ADDRESS).toString()
         val solarPanels: String = intent.getIntExtra(CalculatorActivity.PANELS,0).toString()
-        val inverterSize: String = intent.getDoubleExtra(CalculatorActivity.INVERTER_SIZE,0.0).toString()
-        val storageSize: String = intent.getDoubleExtra(CalculatorActivity.STORAGE_SIZE,0.0).toString()
-        val billCut: String = intent.getDoubleExtra(CalculatorActivity.CLIENT_BILL_CUT,0.0).toString()
-        val paybackPeriod: String = intent.getDoubleExtra(CalculatorActivity.PAYBACK_PERIOD,0.0).toString()
-        val totalCost: String = intent.getDoubleExtra(CalculatorActivity.TOTAL_COST,0.0).toString()
-
-        Log.d("EstimateActivity - Solar Panels", solarPanels)
+        val inverterSize: String = intent.getDoubleExtra(CalculatorActivity.INVERTER_SIZE,0.0).toString() + " kW"
+        val storageSize: String = intent.getDoubleExtra(CalculatorActivity.STORAGE_SIZE,0.0).toString() + " kWh"
+        val billCut: String = (intent.getDoubleExtra(CalculatorActivity.CLIENT_BILL_CUT,0.0) * 100 ).toString() + "%"
+        val paybackPeriod: String = intent.getDoubleExtra(CalculatorActivity.PAYBACK_PERIOD,0.0).toString() + " yrs"
+        val totalCost: String = "$" + intent.getDoubleExtra(CalculatorActivity.TOTAL_COST,0.0).toString()
 
         // Set TextView References
         val clientName: TextView = findViewById<TextView?>(R.id.ClientName)

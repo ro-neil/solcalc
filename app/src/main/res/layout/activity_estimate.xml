@@ -21,11 +21,12 @@
             android:id="@+id/estimate_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:textColor="@color/white"
             android:layout_gravity="center"
-            tools:text="Estimate Details" />
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="Estimate Details" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
                 android:text="@string/total_system_cost"
                 android:textColor="@color/black"
                 android:textSize="20sp"
@@ -79,6 +81,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="No. Of Solar Panels"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
@@ -116,9 +119,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_alignParentStart="true"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="Size Inverter"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
@@ -156,9 +160,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_alignParentStart="true"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="Storage"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
@@ -199,6 +204,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="Percentage Bill Cut"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
@@ -239,6 +245,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="Payback Period"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
@@ -280,9 +287,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/total_system_cost"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:text="@string/total_system_cost" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/total_sys_cost"
@@ -290,10 +298,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="30dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="$$$"
                     android:textColor="@color/orange"
                     android:textSize="25sp"
-                    android:textStyle="bold"
-                    android:text="$$$" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/str_include_labour"
@@ -301,9 +310,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="65dp"
+                    android:fontFamily="@font/poppins_semibolditalic"
+                    android:text="@string/includes_labour"
                     android:textColor="@color/black"
-                    android:textSize="13sp"
-                    android:text="@string/includes_labour" />
+                    android:textSize="13sp" />
 
             </androidx.cardview.widget.CardView>
 

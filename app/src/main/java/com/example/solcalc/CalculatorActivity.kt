@@ -34,27 +34,20 @@ class CalculatorActivity : AppCompatActivity() {
 
         val getEstimateBtn: Button = findViewById(R.id.get_estimate)
         getEstimateBtn.setOnClickListener{
-            //var intent = Intent()   // Create implicit Intent
             val name = editName.text.toString()
             val address = editAddress.text.toString()
 
             val stringBill : Float = java.lang.Float.valueOf(editBill.text.toString())
-            val billCutVal = slider.value.toDouble()/100    // 0 <= billCutVal <= 1
+            val billCutVal = slider.value.toDouble()/100
             val batteriesBool = batteries.isChecked
             val bill = stringBill.toDouble()
 
-            Log.d("CalculatorActivity - Bill",editBill.text.toString())
-            Log.d("CalculatorActivity - Bill cut",billCutVal.toString())
-            Log.d("CalculatorActivity - Batteries",batteriesBool.toString())
-
             if(TextUtils.isEmpty(name) || TextUtils.isEmpty(address) || (bill == 0.0)){
-                Log.d("CalculatorActivity","Name, Address or Bill field is empty")
                 setResult(Activity.RESULT_CANCELED, intent)
             }else{
                 calc = CalculationsApi()
                 estimateViewModel = ViewModelProvider(this@CalculatorActivity).get(EstimateViewModel::class.java)
 
-                Log.d("CalculatorActivity","Generating quote based on battery preference")
                 // Generate quote based on battery preference
                 quote = if(batteriesBool){
                     calc.getTotalSystemCostWithBatteries(bill, billCutVal)
@@ -64,17 +57,11 @@ class CalculatorActivity : AppCompatActivity() {
 
                 // Store quote fields as references
                 val numberOfPanels: Int = quote.numberOfPanels
-                //val strNumberOfPanels : String = java.lang.String.valueOf(numberOfPanels)
-                val inverterCapacity: Double = quote.inverterCapacity
-                val storageCapacity: Double = quote.storageCapacity
+                val inverterCapacity: Double = "%.2f".format(quote.inverterCapacity).toDouble()
+                val storageCapacity: Double = "%.2f".format(quote.storageCapacity).toDouble()
                 val payBackPeriod: Double = "%.2f".format(quote.payBackPeriod).toDouble()
-                val totalInstallationCost: Double = quote.totalInstallationCost
-                Log.d("CalculatorActivity","Generated Quote values")
-                Log.d("CalculatorActivity - numberOfPanels",numberOfPanels.toString())
-                Log.d("CalculatorActivity - inverterCapacity",inverterCapacity.toString())
-                Log.d("CalculatorActivity - storageCapacity",storageCapacity.toString())
-                Log.d("CalculatorActivity - payBackPeriod",payBackPeriod.toString())
-                Log.d("CalculatorActivity - totalInstallationCost",totalInstallationCost.toString())
+                val totalInstallationCost: Double = "%.2f".format(quote.totalInstallationCost).toDouble()
+
 
                 // Create Client & Estimate or Update Client Estimates
                 //val client = Client(cid=0,name,address)
@@ -93,10 +80,8 @@ class CalculatorActivity : AppCompatActivity() {
 //                estimateViewModel.insert(estimate)
 //
                 // Recall and use data from DB
-                Log.d("CalculatorActivity","Creating Intent")
                 val intent = Intent(this@CalculatorActivity, EstimateActivity::class.java) // Reassign to explicit intent
                 // Pass estimate values as extras to EstimateActivity
-                Log.d("CalculatorActivity","Intent created. Putting extras...")
                 intent.putExtra(CLIENT_NAME, name)
                 intent.putExtra(CLIENT_ADDRESS, address)
                 intent.putExtra(PANELS, numberOfPanels)
@@ -105,8 +90,8 @@ class CalculatorActivity : AppCompatActivity() {
                 intent.putExtra(CLIENT_BILL_CUT, billCutVal)
                 intent.putExtra(PAYBACK_PERIOD, payBackPeriod)
                 intent.putExtra(TOTAL_COST, totalInstallationCost)
-                Log.d("Intent","Intent extras assigned. Starting EstimateActivity...")
-                 //Start estimate activity to format the results
+
+                //Start estimate activity to format the results
                 startActivity(intent);
             }
             //finish()
@@ -122,9 +107,5 @@ class CalculatorActivity : AppCompatActivity() {
         const val CLIENT_BILL_CUT = "bill_cut"
         const val PAYBACK_PERIOD = "payback_size"
         const val TOTAL_COST = "total_cost"
-
-        /*const val CLIENT_BILL = "client_bill"
-        const val CLIENT_IF_BATTERIES = "batteries_desc"*/
-
     }
 }
