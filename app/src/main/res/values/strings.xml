@@ -14,4 +14,5 @@
     <string name="c_bill">Highest Recorded/Avg. Light Bill</string>
     <string name="total_system_cost">TOTAL SYSTEM COST</string>
     <string name="includes_labour">*includes labour cost</string>
+    <string name="client_email_label">Email</string>
 </resources>

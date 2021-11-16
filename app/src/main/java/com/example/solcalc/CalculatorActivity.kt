@@ -14,6 +14,7 @@ import com.example.solcalc.model.client.Client
 import com.example.solcalc.model.estimate.Estimate
 import com.google.android.material.slider.Slider
 import com.google.android.material.textfield.TextInputEditText
+import org.w3c.dom.Text
 
 class CalculatorActivity : AppCompatActivity() {
 
@@ -27,6 +28,7 @@ class CalculatorActivity : AppCompatActivity() {
 
         val editName: TextInputEditText = findViewById(R.id.client_name)
         val editAddress: TextInputEditText = findViewById(R.id.client_addr)
+        val editEmail: TextInputEditText = findViewById(R.id.client_email)
         val slider: Slider = findViewById(R.id.billCut)
         val batteries: Switch = findViewById(R.id.ifBatteries)
         val editBill: TextInputEditText = findViewById(R.id.client_bill)
@@ -36,13 +38,13 @@ class CalculatorActivity : AppCompatActivity() {
         getEstimateBtn.setOnClickListener{
             val name = editName.text.toString()
             val address = editAddress.text.toString()
-
+            val email = editEmail.text.toString()
             val stringBill : Float = java.lang.Float.valueOf(editBill.text.toString())
             val billCutVal = slider.value.toDouble()/100
             val batteriesBool = batteries.isChecked
             val bill = stringBill.toDouble()
 
-            if(TextUtils.isEmpty(name) || TextUtils.isEmpty(address) || (bill == 0.0)){
+            if(TextUtils.isEmpty(name) || TextUtils.isEmpty(address) || TextUtils.isEmpty(email) || (bill == 0.0)){
                 setResult(Activity.RESULT_CANCELED, intent)
             }else{
                 calc = CalculationsApi()
@@ -84,6 +86,7 @@ class CalculatorActivity : AppCompatActivity() {
                 // Pass estimate values as extras to EstimateActivity
                 intent.putExtra(CLIENT_NAME, name)
                 intent.putExtra(CLIENT_ADDRESS, address)
+                intent.putExtra(CLIENT_EMAIL, email)
                 intent.putExtra(PANELS, numberOfPanels)
                 intent.putExtra(INVERTER_SIZE, inverterCapacity)
                 intent.putExtra(STORAGE_SIZE, storageCapacity)
@@ -101,6 +104,7 @@ class CalculatorActivity : AppCompatActivity() {
     companion object{
         const val CLIENT_NAME = "client_name"
         const val CLIENT_ADDRESS = "client_address"
+        const val CLIENT_EMAIL = "client_email"
         const val PANELS = "panels"
         const val INVERTER_SIZE = "inverter_size"
         const val STORAGE_SIZE = "storage_size"
