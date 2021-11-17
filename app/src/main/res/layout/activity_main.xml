@@ -6,6 +6,24 @@
     android:layout_height="match_parent"
     android:background="@color/orange">
 
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="2"
+        android:layout_column="3"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp">
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            android:background="@mipmap/ic_sun_foreground"
+            android:contentDescription="" />
+
+    </Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -238,25 +256,6 @@
                     android:background="@color/white"
                     android:inputType="textShortMessage" />
             </androidx.cardview.widget.CardView>
-
-            <Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_row="2"
-                android:layout_column="3"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp">
-
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="20dp"
-                    android:background="@mipmap/ic_sun_foreground"
-                    android:contentDescription="" />
-
-            </Toolbar>
 
         </GridLayout>
 
