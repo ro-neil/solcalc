@@ -3,6 +3,7 @@ package com.example.solcalc
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
@@ -34,7 +35,12 @@ class EstimateActivity : AppCompatActivity() {
         val billCut: String = (intent.getDoubleExtra(CalculatorActivity.CLIENT_BILL_CUT,0.0) * 100 ).toString() + "%"
         val paybackPeriod: String = intent.getDoubleExtra(CalculatorActivity.PAYBACK_PERIOD,0.0).toString() + " yrs"
         val totalCost: String = "$" + intent.getDoubleExtra(CalculatorActivity.TOTAL_COST,0.0).toString()
-        val subj: String = "$clientsName's SoCal Estimate"
+        val subj: String = "$clientsName's SolCalc Estimate"
+        val emailBody: String = Html.fromHtml("<h1>$clientsName's SolCalc Estimate</h1></br><h3>Estimate Breakdown</h3></br>" +
+                "<p>No. Of Solar Panels: $solarPanels<p></br><p>Size Inverter: $inverterSize</br><p>Storage: $storageSize</p></br>" +
+                    "<p>Percentage Bill Cut: $billCut</p></br><p>Payback Period: $paybackPeriod</p></br></br><hr><p>Total System Cost: $totalCost" +
+                        "</br><p>NB: Total System Cost includes the cost of labour.</p>").toString()
+
 
         // Set TextView References
         val clientName: TextView = findViewById<TextView?>(R.id.ClientName)
@@ -63,10 +69,10 @@ class EstimateActivity : AppCompatActivity() {
                 type = "text/html"
                 this.putExtra(Intent.EXTRA_EMAIL,clientsEmail)
                 this.putExtra(Intent.EXTRA_SUBJECT, subj)
-                this.putExtra(Intent.EXTRA_TEXT, totalCost)
+                this.putExtra(Intent.EXTRA_TEXT, emailBody)
             }
             startActivity(Intent.createChooser(intent, "Send Email"))
-            Toast.makeText(applicationContext, "Email Sent!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Sending Email...", Toast.LENGTH_SHORT).show()
         }
     }
 }
