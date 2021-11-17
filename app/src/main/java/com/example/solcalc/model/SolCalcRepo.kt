@@ -19,7 +19,7 @@ class SolCalcRepo (private val clientDao: ClientDao, private val estimateDao: Es
         estimateDao.insertEstimate(estimate)
     }
 
-    fun getLastClient(): LiveData<List<Client>> {
+    fun getLastClient(): List<Client> {
         return clientDao.getLastClient()
     }
 

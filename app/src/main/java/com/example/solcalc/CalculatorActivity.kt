@@ -65,23 +65,16 @@ class CalculatorActivity : AppCompatActivity() {
                 val payBackPeriod: Double = "%.2f".format(quote.payBackPeriod).toDouble()
                 val totalInstallationCost: Double = "%.2f".format(quote.totalInstallationCost).toDouble()
 
+                //Create Client & Estimate or Update Client Estimates
+                val client = Client(cid=0,name,address, email)
+                estimateViewModel.insert(client)
 
-                // Create Client & Estimate or Update Client Estimates
-                //val client = Client(cid=0,name,address)
-                //estimateViewModel.insert(client)
+                val data  = estimateViewModel.getLastClient()
+                val cid = data[0].cid
 
-//                val data  = estimateViewModel.getLastClient()
-//                val tt = estimateViewModel.getSpecificClient(2)
-//                Log.d("test5", tt.name)
-//                val data2 = data.value
-//                val data3 = data2?.get(0)?.name
-//                Log.d("test2", data3.toString())
+                val estimate = Estimate(eid=0, cid,numberOfPanels,inverterCapacity, storageCapacity,billCutVal,payBackPeriod, totalInstallationCost)
+                estimateViewModel.insert(estimate)
 
-//                Log.d("CalculatorActivity","Creating Estimate entity")
-//                val estimate = Estimate(eid=0, cid,numberOfPanels,inverterCapacity, storageCapacity,billCutVal,payBackPeriod, totalInstallationCost)
-//                Log.d("CalculatorActivity","Created Estimate entity(eid: ${estimate.eid}). Inserting into DB...")
-//                estimateViewModel.insert(estimate)
-//
                 // Recall and use data from DB
                 val intent = Intent(this@CalculatorActivity, EstimateActivity::class.java) // Reassign to explicit intent
                 // Pass estimate values as extras to EstimateActivity

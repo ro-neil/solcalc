@@ -25,7 +25,7 @@ interface ClientDao {
     fun getAllClients(): LiveData<List<Client>>
 
     @Query("SELECT * FROM Client ORDER BY cid DESC LIMIT 1")
-    fun getLastClient(): LiveData<List<Client>>
+    fun getLastClient(): List<Client>
 
 
     @Query("SELECT * FROM Client WHERE cid = :cid")

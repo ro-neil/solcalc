@@ -34,8 +34,7 @@ class EstimateViewModel(application: Application):AndroidViewModel(application) 
         repo.insert(estimate)
     }
 
-    fun getLastClient(): LiveData<List<Client>> {
-        Log.d("test3", clients.value?.get(0)?.cid.toString())
+    fun getLastClient(): List<Client> {
         return repo.getLastClient()
     }
 
