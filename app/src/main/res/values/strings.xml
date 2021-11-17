@@ -11,8 +11,11 @@
         <item>No</item>
     </string-array>
     <string name="calc">Calculator</string>
+    <string name="calc_bold">CALCULATOR</string>
     <string name="c_bill">Highest Recorded/Avg. Light Bill</string>
     <string name="total_system_cost">TOTAL SYSTEM COST</string>
     <string name="includes_labour">*includes labour cost</string>
     <string name="client_email_label">Email</string>
+    <string name="sys_app">A SYSAPP PRODUCTION</string>
+    <string name="calc_prompt">Get your solar power estimates right now!</string>
 </resources>

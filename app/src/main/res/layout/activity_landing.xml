@@ -20,11 +20,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="60sp"
-            android:textColor="@color/white"
             android:layout_gravity="center"
-            tools:text="SolCalc" />
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/white"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            android:text="@string/app_name"/>
 
         <ImageView
             android:layout_width="180dp"
@@ -61,31 +62,35 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:layout_gravity="center"
-                    android:layout_marginTop="160dp"
-                    tools:text="Get your solar power estimates right now!" />
+                    android:layout_marginTop="100dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/calc_prompt"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
                 <Button
+                    android:id="@+id/calc_button"
                     android:layout_width="350dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/button_bg"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:textStyle="bold"
-                    android:text="CALCULATOR"/>
+                    android:background="@drawable/button_bg"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/calc_bold"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    tools:text="A SYSAPP PRODUCTION" />
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:text="@string/sys_app"/>
             </LinearLayout>
 
         </LinearLayout>

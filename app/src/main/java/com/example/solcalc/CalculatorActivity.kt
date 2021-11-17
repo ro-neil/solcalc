@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Switch
 import androidx.lifecycle.ViewModelProvider
 import com.example.solcalc.model.EstimateViewModel
@@ -97,8 +98,14 @@ class CalculatorActivity : AppCompatActivity() {
                 //Start estimate activity to format the results
                 startActivity(intent);
             }
-            //finish()
         }
+
+        val backBtn : ImageButton = findViewById(R.id.back_arrow)
+        backBtn.setOnClickListener {
+            val intent = Intent(this@CalculatorActivity, MainActivity::class.java)
+            startActivity(intent);
+        }
+
     }
 
     companion object{
