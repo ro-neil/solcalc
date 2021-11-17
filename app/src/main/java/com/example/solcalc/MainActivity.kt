@@ -10,6 +10,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_landing)
 
+
+
         val calcBtn : Button = findViewById(R.id.calc_button)
         calcBtn.setOnClickListener {
             val intent = Intent(this@MainActivity, CalculatorActivity::class.java)
