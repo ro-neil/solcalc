@@ -18,4 +18,7 @@
     <string name="client_email_label">Email</string>
     <string name="sys_app">A SYSAPP PRODUCTION</string>
     <string name="calc_prompt">Get your solar power estimates right now!</string>
+    <string name="estimate_question">Here to get your estimate?</string>
+    <string name="user_greeting">Hello User!</string>
+    <string name="prev_estimate">Previous Estimates</string>
 </resources>
