@@ -13,4 +13,7 @@ interface EstimateDao {
 
     @Query("DELETE FROM estimate")
     suspend fun deleteAll()
+
+    @Query("SELECT * FROM estimate WHERE clientID = :cid")
+    fun getEstimate(cid: Int): Estimate
 }

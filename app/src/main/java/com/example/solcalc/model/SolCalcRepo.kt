@@ -23,8 +23,12 @@ class SolCalcRepo (private val clientDao: ClientDao, private val estimateDao: Es
         return clientDao.getLastClient()
     }
 
-    fun getSpecificClient(cid:Int): Client {
-        return clientDao.getSpecificClient(cid)
+    fun getLastThreeClients(): List<Client> {
+        return clientDao.getLastThreeEntries()
+    }
+
+    fun getEstimate(cid: Int): Estimate {
+        return estimateDao.getEstimate(cid)
     }
 
 }

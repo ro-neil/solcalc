@@ -38,8 +38,12 @@ class EstimateViewModel(application: Application):AndroidViewModel(application) 
         return repo.getLastClient()
     }
 
-    fun getSpecificClient(cid: Int): Client {
-        return repo.getSpecificClient(cid)
+    fun getLastThreeClients(): List<Client> {
+        return repo.getLastThreeClients()
+    }
+
+    fun getEstimate(cid: Int): Estimate {
+        return repo.getEstimate(cid)
     }
 
 }

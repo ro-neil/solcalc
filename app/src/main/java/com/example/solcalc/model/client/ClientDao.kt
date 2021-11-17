@@ -13,7 +13,7 @@ interface ClientDao {
     suspend fun insertClient(client: Client)
 
     @Query("SELECT * FROM Client ORDER BY cid DESC LIMIT 3")
-    fun getLastThreeEntries(): LiveData<List<Client>>
+    fun getLastThreeEntries(): List<Client>
 
     @Query("SELECT * FROM Client JOIN Estimate ON Client.cid = Estimate.clientID WHERE cid = :sid")
     fun getClientEstimate(sid:Int): LiveData<List<Client>>
